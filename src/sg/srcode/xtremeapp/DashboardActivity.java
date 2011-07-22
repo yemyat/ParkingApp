@@ -1,16 +1,13 @@
 package sg.srcode.xtremeapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import greendroid.app.GDActivity;
-import greendroid.widget.GDActionBarItem.Type;
-import org.apache.commons.logging.Log;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import sg.srcode.xtremeapp.activity.CabActivity;
 import sg.srcode.xtremeapp.activity.CarparkActivity;
 import sg.srcode.xtremeapp.activity.DirectionActivity;
 import sg.srcode.xtremeapp.adapter.DashboardAdapter;
@@ -65,6 +62,9 @@ public class DashboardActivity extends GDActivity
                     break;
                 case 1:
                     intent.setClass(adapterView.getContext(), CarparkActivity.class);
+                    break;
+                case 2:
+                    intent.setClass(adapterView.getContext(), CabActivity.class);
                     break;
                 default:
                     //Do nothing

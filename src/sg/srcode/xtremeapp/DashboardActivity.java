@@ -10,6 +10,7 @@ import greendroid.app.GDActivity;
 import sg.srcode.xtremeapp.activity.CabActivity;
 import sg.srcode.xtremeapp.activity.CarparkActivity;
 import sg.srcode.xtremeapp.activity.DirectionActivity;
+import sg.srcode.xtremeapp.activity.PlaceActivity;
 import sg.srcode.xtremeapp.adapter.DashboardAdapter;
 import sg.srcode.xtremeapp.item.DashboardItem;
 
@@ -65,6 +66,9 @@ public class DashboardActivity extends GDActivity
                     break;
                 case 2:
                     intent.setClass(adapterView.getContext(), CabActivity.class);
+                    break;
+                case 4:
+                    intent.setClass(adapterView.getContext(), PlaceActivity.class);
                     break;
                 default:
                     //Do nothing

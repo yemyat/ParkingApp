@@ -82,6 +82,7 @@ public class NimbusServer {
 
         try {
             String baseUrl = makeUrl(Mode.CARPARK) + "?Latitude="+latitude+"&"+"Longtitude="+longtitude+"&"+"Distance="+distance;
+            Log.d(TAG, baseUrl);
             URLConnection conn = makeConnection(baseUrl);
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()),8000);
             String line = null;
@@ -94,15 +95,18 @@ public class NimbusServer {
             String[] properties = sb.toString().split("<m:properties>");
 
             for(String str : properties) {
-                CarparkItem item = new CarparkItem();
-                item.setmId(StringUtils.getStringBetween(str, "<d:CarParkID m:type=\"Edm.Int32\">", "</d:CarParkID>"));
-                item.setmArea(StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>"));
-                item.setmDevelopment(StringUtils.getStringBetween(str, "<d:Development>", "</d:Development>"));
-                item.setmFreeLots(StringUtils.getStringBetween(str, "<d:Lots m:type=\"Edm.Int32\">", "</d:Lots>"));
-                item.setmLatitude(StringUtils.getStringBetween(str, "<d:Latitude m:type=\"Edm.Double\">", "</d:Latitude>"));
-                item.setmLongitude(StringUtils.getStringBetween(str, "<d:Longitude m:type=\"Edm.Double\">", "</d:Longitude>"));
-                item.setmDistance(StringUtils.getStringBetween(str, "<d:Distance m:type=\"Edm.Double\">", "</d:Distance>"));
-                result.add(item);
+                if(!StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>").equals("")) {
+                    CarparkItem item = new CarparkItem();
+                    item.setmId(StringUtils.getStringBetween(str, "<d:CarParkID m:type=\"Edm.Int32\">", "</d:CarParkID>"));
+                    item.setmArea(StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>"));
+                    item.setmDevelopment(StringUtils.getStringBetween(str, "<d:Development>", "</d:Development>"));
+                    item.setmFreeLots(StringUtils.getOnlyNumerics(StringUtils.getStringBetween(str, "<d:Lots m:type=\"Edm.Int32\">", "</d:Lots>")));
+                    item.setmLatitude(StringUtils.getStringBetween(str, "<d:Latitude m:type=\"Edm.Double\">", "</d:Latitude>"));
+                    item.setmLongitude(StringUtils.getStringBetween(str, "<d:Longitude m:type=\"Edm.Double\">", "</d:Longitude>"));
+                    item.setmDistance(StringUtils.getStringBetween(str, "<d:Distance m:type=\"Edm.Double\">", "</d:Distance>"));
+                    result.add(item);
+                }
+
             }
             Log.d(TAG, "Done retrieving car parks. Retrieved : " + result.size());
         } catch (IOException e) {

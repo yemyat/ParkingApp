@@ -2,15 +2,15 @@ package sg.srcode.xtremeapp.item;
 
 import android.graphics.drawable.Drawable;
 
-import java.util.Set;
-
-public class DashboardItem {
+public class EditableItem {
 
     protected String mName;
     protected Drawable mIcon;
+    protected String mValue;
 
-    public DashboardItem(String name, Drawable icon) {
+    public EditableItem(String name, String value, Drawable icon) {
         this.mName = name;
+        this.mValue = value;
         this.mIcon = icon;
     }
 
@@ -20,6 +20,14 @@ public class DashboardItem {
 
     public void setName(String name) {
         this.mName = name;
+    }
+
+    public String getmValue() {
+        return mValue;
+    }
+
+    public void setmValue(String mValue) {
+        this.mValue = mValue;
     }
 
     public Drawable getIcon() {

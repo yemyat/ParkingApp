@@ -1,6 +1,11 @@
 package sg.srcode.xtremeapp.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,13 +16,14 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.OverlayItem;
 import greendroid.app.GDActivity;
-import greendroid.widget.GDActionBarItem;
-import greendroid.widget.LoaderActionBarItem;
+import greendroid.widget.*;
 import greendroid.widget.GDActionBarItem.Type;
 import sg.srcode.xtremeapp.R;
 import sg.srcode.xtremeapp.adapter.CarparkAdapter;
@@ -29,27 +35,33 @@ import sg.srcode.xtremeapp.utils.LocationUtils;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class CarparkActivity extends GDActivity {
+public class CarparkActivity extends GDActivity implements AdapterView.OnItemClickListener {
 
     private NimbusServer mServer;
     private LoaderActionBarItem loaderItem;
     private ArrayList<CarparkItem> mItems;
 
     private ListView mListView;
+    private QuickActionWidget mBar;
+
     private SectionedAdapter mSectionedAdapter;
 
     private LocationManager mLocationManager;
 
     private final String[] LIST_HEADERS = {"High", "Medium", "Low"};
-
+    private final String[] LIST_SCALE = {"> 250", "100 - 250","< 100"};
 
     private Location mCurrentLocation;
+
+    private int mListItemPosition; //To track list item click location
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setGDActionBarContentView(R.layout.carpark_activity);
         addActionBarItem(Type.Refresh, R.id.action_bar_refresh);
+
+        prepareQuickActionBar();
 
         mItems = new ArrayList<CarparkItem>();
 
@@ -78,8 +90,16 @@ public class CarparkActivity extends GDActivity {
         LocationUtils lu = new LocationUtils();
         lu.init(getBaseContext(), locationResult);
 
+        mListView.setOnItemClickListener(this);
+
         //Initial retrieval of data
         reloadTask();
+    }
+
+
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        this.mListItemPosition = i;
+        onShowBar(view);
     }
 
     @Override
@@ -97,10 +117,10 @@ public class CarparkActivity extends GDActivity {
 
 
     public void reloadData() {
-
+        this.mItems = null;
         this.mItems = mServer.getNearbyCarparks(this.mCurrentLocation.getLatitude(), this.mCurrentLocation.getLongitude(), 50);
         this.mSectionedAdapter.removeAllSections();
-
+        int i = 0;
         for (String header : LIST_HEADERS) {
             ArrayList<CarparkItem> temp = new ArrayList<CarparkItem>();
             for (CarparkItem item : mItems) {
@@ -109,16 +129,17 @@ public class CarparkActivity extends GDActivity {
                 }
             }
             if(temp.size() > 0) {
-                this.mSectionedAdapter.addSection("Availability : " + header, new CarparkAdapter(getBaseContext(), temp));
+                this.mSectionedAdapter.addSection("Availability : " + header + " ("+LIST_SCALE[i]+")", new CarparkAdapter(getBaseContext(), temp));
             }
+            i++;
         }
-
     }
 
     public void reloadTask() {
         RetrieveDataTask task = new RetrieveDataTask(); //Create a new task
         task.execute("RetrieveData");
     }
+
 
     private class RetrieveDataTask extends AsyncTask<String, Void, String> {
 
@@ -150,5 +171,62 @@ public class CarparkActivity extends GDActivity {
             reloadTask();
         }
     };
+
+    public void onShowBar(View v) {
+        mBar.show(v);
+    }
+
+    private void prepareQuickActionBar() {
+        mBar = new QuickActionBar(this);
+        mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_edit, R.string.carpark_calculate));
+        mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_eye, R.string.carpark_map));
+
+        mBar.setOnQuickActionClickListener(mActionListener);
+    }
+
+    private QuickActionWidget.OnQuickActionClickListener mActionListener = new QuickActionWidget.OnQuickActionClickListener() {
+        public void onQuickActionClicked(QuickActionWidget widget, int position) {
+            Intent intent = new Intent();
+            intent = attachInfoForItem(mItems.get(mListItemPosition - 1), intent);
+            switch (position) {
+                case 0:
+                    //Calculator
+                    intent.setClass(getBaseContext(), ChargeCalculatorActivity.class);
+                    break;
+                case 1:
+                    //Map
+
+                    break;
+                default:
+                   //Do nothing for now
+            }
+            startActivity(intent);
+        }
+    };
+
+    private static class MyQuickAction extends QuickAction {
+
+        private static final ColorFilter BLACK_CF = new LightingColorFilter(Color.BLACK, Color.BLACK);
+
+        public MyQuickAction(Context ctx, int drawableId, int titleId) {
+            super(ctx, buildDrawable(ctx, drawableId), titleId);
+        }
+
+        private static Drawable buildDrawable(Context ctx, int drawableId) {
+            Drawable d = ctx.getResources().getDrawable(drawableId);
+            d.setColorFilter(BLACK_CF);
+            return d;
+        }
+
+    }
+
+    private Intent attachInfoForItem(CarparkItem item, Intent intent) {
+
+        intent.putExtra("baseCharge", item.getmBaseCharge());
+        intent.putExtra("development", item.getmDevelopment());
+
+        return intent;
+
+    }
 
 }

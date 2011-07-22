@@ -9,6 +9,7 @@ public class CarparkItem {
     protected String mLatitude;
     protected String mLongitude;
     protected String mDistance;
+    protected String mAvailability;
 
     public CarparkItem() {}
 
@@ -20,6 +21,7 @@ public class CarparkItem {
         this.mLatitude = latitude;
         this.mLongitude = longitude;
         this.mDistance = distance;
+        calculateAvailability();
     }
 
     public String getmId() {
@@ -52,6 +54,7 @@ public class CarparkItem {
 
     public void setmFreeLots(String mFreeLots) {
         this.mFreeLots = mFreeLots;
+        calculateAvailability();
     }
 
     public String getmLatitude() {
@@ -77,4 +80,25 @@ public class CarparkItem {
     public void setmDistance(String mDistance) {
         this.mDistance = mDistance;
     }
+
+    public String getmAvailability() {
+        return mAvailability;
+    }
+
+    public void setmAvailability(String mAvailability) {
+        this.mAvailability = mAvailability;
+    }
+
+    private void calculateAvailability() {
+        String result = "high";
+        if(Integer.parseInt(this.mFreeLots) < 200) {
+            result = "medium";
+        }
+        if(Integer.parseInt(this.mFreeLots) < 50) {
+            result = "low";
+        }
+        setmAvailability(result);
+    }
+
+
 }

@@ -11,10 +11,29 @@ public class StringUtils
 		int endIdx = src.indexOf(end);
 			while(startIdx < endIdx)
 			{
-				sb.append("" + String.valueOf(src.charAt(startIdx)));
+				sb.append(String.valueOf(src.charAt(startIdx)));
 				startIdx++;
 			}
 
 		return sb.toString();
 	}
+
+    public static String getOnlyNumerics(String str) {
+
+    if (str == null) {
+        return null;
+    }
+
+    StringBuffer strBuff = new StringBuffer();
+    char c;
+
+    for (int i = 0; i < str.length() ; i++) {
+        c = str.charAt(i);
+
+        if (Character.isDigit(c)) {
+            strBuff.append(c);
+        }
+    }
+    return strBuff.toString();
+}
 }

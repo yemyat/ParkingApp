@@ -37,6 +37,11 @@ public class DashboardActivity extends GDActivity
         /* Items for Dashboard */
         ArrayList<DashboardItem> dashboardItems = new ArrayList<DashboardItem>();
         dashboardItems.add(new DashboardItem("Directions", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Item #2", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Item #3", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Item #4", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Nearby", getResources().getDrawable(R.drawable.icon)));
+
 
         this.mGridView = (GridView) findViewById(R.id.gv_dashboard);
         this.mDashboardAdapter = new DashboardAdapter(this, dashboardItems);

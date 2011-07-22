@@ -104,9 +104,7 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
        for(PlaceItem item : mItems) {
            if(!item.getmCategory().equals(""))
-            mCategories.add(item.getmCategory());
-           else
-             mCategories.add("Uncategorized");
+             mCategories.add(item.getmCategory());
        }
         removeCategoryDuplicates();
 
@@ -160,7 +158,9 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         this.mListItemPosition = i;
-        Toast t = Toast.makeText(getApplicationContext(), "" + i, )
+        Toast t = Toast.makeText(getApplicationContext(), "" + i, Toast.LENGTH_SHORT);
+        t.show();
+
     }
 
 }

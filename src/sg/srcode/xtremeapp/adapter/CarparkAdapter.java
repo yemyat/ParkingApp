@@ -46,7 +46,8 @@ public class CarparkAdapter extends BaseAdapter {
             viewHolder.status = (ImageView) view.findViewById(R.id.tv_carpark_status);
             viewHolder.name = (TextView) view.findViewById(R.id.tv_carpark_name);
             viewHolder.area = (TextView) view.findViewById(R.id.tv_carpark_area);
-            viewHolder.lots = (TextView) view.findViewById(R.id.tv_carpark_free_lots);
+            viewHolder.lots = (TextView) view.findViewById(R.id.tv_carpark_freelots);
+            viewHolder.charge = (TextView) view.findViewById(R.id.tv_carpark_charge);
 
             view.setTag(viewHolder);
         } else {
@@ -58,7 +59,8 @@ public class CarparkAdapter extends BaseAdapter {
                 ColorUtils.mapColorToValue(item.getmAvailability())));
         viewHolder.name.setText(item.getmDevelopment());
         viewHolder.area.setText(item.getmArea());
-        viewHolder.lots.setText(item.getmFreeLots());
+        viewHolder.lots.setText(", "+item.getmFreeLots()+" ");
+        viewHolder.charge.setText("$"+item.getmBaseCharge());
 
         return view;
     }
@@ -68,5 +70,6 @@ public class CarparkAdapter extends BaseAdapter {
         TextView name;
         TextView area;
         TextView lots;
+        TextView charge;
     }
 }

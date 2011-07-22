@@ -9,16 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import sg.srcode.xtremeapp.R;
 import sg.srcode.xtremeapp.item.DashboardItem;
+import sg.srcode.xtremeapp.item.EditableItem;
 
 import java.util.ArrayList;
 
-public class DashboardAdapter extends BaseAdapter {
+public class EditableCellAdapter extends BaseAdapter {
 
-    protected ArrayList<DashboardItem> mItems;
+    protected ArrayList<EditableItem> mItems;
     protected Context mContext;
     protected LayoutInflater mLayoutInflater;
 
-    public DashboardAdapter(Context context, ArrayList<DashboardItem> items) {
+    public EditableCellAdapter(Context context, ArrayList<EditableItem> items) {
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(context);
         this.mItems = items;
@@ -39,27 +40,28 @@ public class DashboardAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if(view == null) {
-            view = this.mLayoutInflater.inflate(R.layout.dashboard_item, null);
+            view = this.mLayoutInflater.inflate(R.layout.editable_cell_item, null);
 
             viewHolder = new ViewHolder();
-            viewHolder.imageView = (ImageView) view.findViewById(R.id.iv_dashboard_icon);
-            viewHolder.textView = (TextView) view.findViewById(R.id.tv_dashboard_label);
+            viewHolder.image = (ImageView) view.findViewById(R.id.iv_cell_icon);
+            viewHolder.label = (TextView) view.findViewById(R.id.tv_cell_title);
+            viewHolder.value = (TextView) view.findViewById(R.id.tv_cell_value);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        DashboardItem item = this.mItems.get(i);
-        viewHolder.textView.setText(item.getName());
-        if(item.getIcon() != null) {
-            viewHolder.imageView.setImageDrawable(item.getIcon());
-        }
+        EditableItem item = this.mItems.get(i);
+        viewHolder.image.setImageDrawable(item.getIcon());
+        viewHolder.label.setText(item.getName());
+        viewHolder.value.setText(item.getmValue());
 
         return view;
     }
 
     static class ViewHolder {
-        ImageView imageView;
-        TextView textView;
+        ImageView image;
+        TextView label;
+        TextView value;
     }
 }

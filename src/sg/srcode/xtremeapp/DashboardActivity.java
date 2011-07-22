@@ -11,6 +11,7 @@ import greendroid.app.GDActivity;
 import greendroid.widget.GDActionBarItem.Type;
 import org.apache.commons.logging.Log;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import sg.srcode.xtremeapp.activity.CarparkActivity;
 import sg.srcode.xtremeapp.activity.DirectionActivity;
 import sg.srcode.xtremeapp.adapter.DashboardAdapter;
 import sg.srcode.xtremeapp.item.DashboardItem;
@@ -38,8 +39,8 @@ public class DashboardActivity extends GDActivity
         /* Items for Dashboard */
         ArrayList<DashboardItem> dashboardItems = new ArrayList<DashboardItem>();
         dashboardItems.add(new DashboardItem("Directions", getResources().getDrawable(R.drawable.icon)));
-        dashboardItems.add(new DashboardItem("Item #2", getResources().getDrawable(R.drawable.icon)));
-        dashboardItems.add(new DashboardItem("Item #3", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Car Parks", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Cabs", getResources().getDrawable(R.drawable.icon)));
         dashboardItems.add(new DashboardItem("Item #4", getResources().getDrawable(R.drawable.icon)));
         dashboardItems.add(new DashboardItem("Nearby", getResources().getDrawable(R.drawable.icon)));
 
@@ -61,6 +62,9 @@ public class DashboardActivity extends GDActivity
             switch(i) {
                 case 0:
                     intent.setClass(adapterView.getContext(), DirectionActivity.class);
+                    break;
+                case 1:
+                    intent.setClass(adapterView.getContext(), CarparkActivity.class);
                     break;
                 default:
                     //Do nothing

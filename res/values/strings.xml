@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">XtremeApp</string>
     <string name="directions">Directions</string>
+    <string name="carpark">Car Parks</string>
+
 </resources>

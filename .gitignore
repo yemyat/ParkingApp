@@ -1,0 +1,8 @@
+build.xml
+CodeXtreme.iml
+build.properties
+local.properties
+proguard.cfg
+/bin
+/gen
+/libs

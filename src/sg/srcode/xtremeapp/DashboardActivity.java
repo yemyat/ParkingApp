@@ -1,17 +1,17 @@
 package sg.srcode.xtremeapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
+import android.widget.*;
 import greendroid.app.GDActivity;
 import greendroid.widget.GDActionBarItem.Type;
 import org.apache.commons.logging.Log;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import sg.srcode.xtremeapp.activity.DirectionActivity;
 import sg.srcode.xtremeapp.adapter.DashboardAdapter;
 import sg.srcode.xtremeapp.item.DashboardItem;
 
@@ -27,6 +27,7 @@ public class DashboardActivity extends GDActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
 
         setGDActionBarContentView(R.layout.dashboard_activity);
 
@@ -55,7 +56,19 @@ public class DashboardActivity extends GDActivity
     private AdapterView.OnItemClickListener dashboardItemClickListener = new AdapterView.OnItemClickListener() {
 
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            //to be implemented;
+            //Initialize a new intent
+            Intent intent = new Intent();
+            switch(i) {
+                case 0:
+                    intent.setClass(adapterView.getContext(), DirectionActivity.class);
+                    break;
+                default:
+                    //Do nothing
+                    break;
+            }
+            if(intent.getComponent() != null) {
+                startActivity(intent);
+            }
         }
     };
 }

@@ -9,11 +9,15 @@ import greendroid.widget.LoaderActionBarItem;
 import greendroid.widget.GDActionBarItem.Type;
 import sg.srcode.xtremeapp.R;
 import sg.srcode.xtremeapp.connection.NimbusServer;
+import sg.srcode.xtremeapp.item.CarparkItem;
+
+import java.util.ArrayList;
 
 public class CarparkActivity extends GDActivity {
 
     private NimbusServer mServer;
     private LoaderActionBarItem loaderItem;
+    private ArrayList<CarparkItem> mItems;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -27,6 +31,7 @@ public class CarparkActivity extends GDActivity {
         //Initialize a server instance
         mServer = new NimbusServer(this);
 
+        //Initial retrieval of data
         RetrieveDataTask task = new RetrieveDataTask(); //Create a new task
         task.execute("RetrieveData");
     }
@@ -36,7 +41,8 @@ public class CarparkActivity extends GDActivity {
         switch (item.getItemId()) {
             case R.id.action_bar_refresh:
                 final LoaderActionBarItem loaderItem = (LoaderActionBarItem) item;
-                reloadData();
+                RetrieveDataTask task = new RetrieveDataTask(); //Create a new task
+                task.execute("RetrieveData");
                 break;
 
             default:
@@ -46,7 +52,11 @@ public class CarparkActivity extends GDActivity {
     }
 
     public void reloadData() {
-        mServer.getNearbyCarparks(1.3, 103.85, 2000);
+        mItems = mServer.getNearbyCarparks(1.3, 103.85, 2000);
+    }
+
+    public double[] getCurrentLocation() {
+        return null;
     }
 
     private class RetrieveDataTask extends AsyncTask<String, Void, String> {

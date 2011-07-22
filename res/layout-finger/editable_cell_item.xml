@@ -21,8 +21,13 @@
                   android:singleLine="true"
                   android:textStyle="bold"
                   ></TextView>
+        <ImageView  android:id="@+id/seperator"
+                    android:layout_width="fill_parent"
+                   android:layout_height="1dp"
+                   android:background="@color/gray"
+                    android:layout_below="@+id/tv_cell_title"></ImageView>
         <TextView android:id="@+id/tv_cell_value"
-                  android:layout_below="@+id/tv_cell_title"
+                  android:layout_below="@+id/seperator"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:textColor="@color/gray"

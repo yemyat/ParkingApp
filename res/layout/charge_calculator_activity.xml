@@ -13,8 +13,12 @@
               android:textSize="64dp"
               android:textStyle="bold"
              android:gravity="right"
-             android:background="@drawable/textlines"
+             android:background="@color/gray"
+
              android:text="$0.00"/>
+            <ImageView android:layout_width="fill_parent"
+                   android:layout_height="1dp"
+                   android:background="@color/black"></ImageView>
     <ListView android:id="@+id/lv_calculator_editibale"
           android:layout_width="fill_parent"
           android:layout_height="fill_parent">

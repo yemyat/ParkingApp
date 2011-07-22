@@ -23,10 +23,20 @@
                   android:label="@string/carpark"
                   android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".activity.CabActivity"
+                  android:label="@string/cab"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".activity.PlaceActivity"
+                  android:label="@string/place"
+                  android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".activity.ChargeCalculatorActivity"
                   android:label="@string/calculator"
                   android:screenOrientation="portrait">
         </activity>
+
     </application>
     <uses-sdk android:minSdkVersion="4" />
     <uses-permission android:name="android.permission.INTERNET" />

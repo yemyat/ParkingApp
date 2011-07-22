@@ -1,14 +1,12 @@
 package sg.srcode.xtremeapp.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import sg.srcode.xtremeapp.R;
 import sg.srcode.xtremeapp.item.CarparkItem;
 import sg.srcode.xtremeapp.utils.ColorUtils;

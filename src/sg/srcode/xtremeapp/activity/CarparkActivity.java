@@ -7,21 +7,15 @@ import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.OverlayItem;
 import greendroid.app.GDActivity;
 import greendroid.widget.*;
 import greendroid.widget.GDActionBarItem.Type;
@@ -32,7 +26,6 @@ import sg.srcode.xtremeapp.connection.NimbusServer;
 import sg.srcode.xtremeapp.item.CarparkItem;
 import sg.srcode.xtremeapp.utils.LocationUtils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CarparkActivity extends GDActivity implements AdapterView.OnItemClickListener {

@@ -2,6 +2,7 @@ package sg.srcode.xtremeapp.utils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Date;
 
 public class StringUtils {
 
@@ -47,7 +48,21 @@ public class StringUtils {
     }
 
     public static String twoDecimalFormatter(Double myDouble) {
-        NumberFormat f = new DecimalFormat("0.00");
+        //Dynamic formatter
+        NumberFormat f = new DecimalFormat("#,###,###,##0.00");
         return f.format(myDouble);
+    }
+
+    public static String[] splitDateIntoThreeString(String date) {
+        return date.split("/");
+    }
+
+    public static String[] splitTimeIntoTwoString(String time) {
+        return time.split(":");
+    }
+
+    public static String getInterval(String str) {
+        String[] temp = str.split(" ");
+        return temp[0];
     }
 }

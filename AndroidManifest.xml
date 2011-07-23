@@ -37,6 +37,11 @@
                   android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".activity.CarparkMapActivity"
+                  android:label="@string/map"
+                  android:screenOrientation="portrait">
+        </activity>
+
     </application>
     <uses-sdk android:minSdkVersion="4" />
     <uses-permission android:name="android.permission.INTERNET" />

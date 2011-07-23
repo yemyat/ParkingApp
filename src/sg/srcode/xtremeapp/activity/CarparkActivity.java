@@ -29,6 +29,7 @@ import sg.srcode.xtremeapp.item.CarparkItem;
 import sg.srcode.xtremeapp.utils.LocationUtils;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class CarparkActivity extends GDActivity implements AdapterView.OnItemClickListener {
 
@@ -51,7 +52,6 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
     private CarparkItem mCheckedItem;
 
     private AlertDialog myAlertDialog;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -147,7 +147,6 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
         @Override
         protected String doInBackground(String... strings) {
-            Looper.prepare();
             reloadData();
             return "";   //Fake response
         }
@@ -197,7 +196,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
                     break;
                 case 1:
                     //Map
-
+                    intent.setClass(getBaseContext(), CarparkMapActivity.class);
                     break;
                 default:
                     //Do nothing for now
@@ -223,6 +222,8 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
         intent.putExtra("baseCharge", item.getmBaseCharge());
         intent.putExtra("development", item.getmDevelopment());
+        intent.putExtra("latitude", item.getmLatitude());
+        intent.putExtra("longitude", item.getmLongitude());
 
         return intent;
     }

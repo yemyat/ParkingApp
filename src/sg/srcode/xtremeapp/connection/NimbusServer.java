@@ -20,7 +20,7 @@ public class NimbusServer {
     protected final String SERVER_BASE_URL = "https://api.projectnimbus.org/";
     protected final String CAR_PARK_URL = "ltafullodataservice.svc/CarParkSet";
     protected final String CAB_URL = "http://nimbus.cloudapp.net/cxa​odataservice.svc/BookingSet";
-    protected final String PLACE_URL = "placesodataservice.svc/Places";
+    protected final String PLACE_URL = "stbodataservice.svc/PlaceSet";
     protected final String API_KEY = "b2asLus0l";
     protected final String USER_ID = "00120000000AB0000000000034000001";
     protected final Context mContext;
@@ -162,24 +162,16 @@ public class NimbusServer {
             String[] properties = sb.toString().split("<m:properties>");
             for(String str : properties) {
                 PlaceItem item = new PlaceItem();
-                item.setmId(StringUtils.getStringBetween(str, "<d:id m:type=\"Edm.Int32\">", "</d:id>"));
-                item.setmCompanyName(StringUtils.getStringBetween(str, "<d:company_name>", "</d:company_name>"));
-                item.setmCompanyType(StringUtils.getStringBetween(str, "<d:company_type>", "</d:company_type>"));
-                item.setmCategory(StringUtils.getStringBetween(str, "<d:category>", "</d:category>"));
-                item.setmSubCategory(StringUtils.getStringBetween(str, "<d:sub_category>", "</d:sub_category>"));
-                item.setmDescription(StringUtils.getStringBetween(str, "<d:short_description>", "</d:short_description>"));
-                item.setmOperatingHrs(StringUtils.getStringBetween(str, "<d:operating_hrs>", "</d:operating_hrs>"));
-                item.setmBlockNo(StringUtils.getStringBetween(str, "<d:block_number>", "</d:block_number>"));
-                item.setmStreetName(StringUtils.getStringBetween(str, "<d:street_name>", "</d:street_name>"));
-                item.setmStreetName2(StringUtils.getStringBetween(str, "<d:street_name2>", "</d:street_name2>"));
-                item.setmUnit(StringUtils.getStringBetween(str,"<d:unit>", "</d:unit>" ));
-                item.setmBuildingName(StringUtils.getStringBetween(str, "<d:building_name>", "</d:building_name>"));
-                item.setmPostalCode(StringUtils.getStringBetween(str, "<d:postal_code", "</d:postal_code"));
-                item.setmLat(StringUtils.getStringBetween(str, "<d:latitude m:type=\"Edm.Decimal\">", "</d:latitude>"));
-                item.setmLng(StringUtils.getStringBetween(str, "<d:longitude m:type=\"Edm.Decimal\">", "</d:longitude>"));
-                item.setmTel(StringUtils.getStringBetween(str, "<d:tel>", "</d:tel>"));
-                item.setmEmail(StringUtils.getStringBetween(str, "<d:email>","</d:email>"));
-                item.setmWebSite(StringUtils.getStringBetween(str, "<d:website_url>","</d:website_url>"));
+                item.setmId(StringUtils.getStringBetween(str, "<d:PlaceID m:type=\"Edm.Int32\">", "</d:PlaceID>"));
+                item.setmName(StringUtils.getStringBetween(str, "<d:Name>", "</d:Name>"));
+                item.setmAddress(StringUtils.getStringBetween(str, "<d:Address1>", "</d:Address1>"));
+                item.setmPostalCode(StringUtils.getStringBetween(str, "<d:PostalCode>", "</d:PostalCode>"));
+                item.setmTel(StringUtils.getStringBetween(str, "<d:Tel>", "</d:Tel>"));
+                item.setmURL(StringUtils.getStringBetween(str, "<d:URL>", "</d:URL"));
+                item.setmOperatingHrs(StringUtils.getStringBetween(str, "<d:OperatingHours>", "</d:OperatingHours>"));
+                item.setmLat(StringUtils.getStringBetween(str, "<d:Latitude m:type=\"Edm.Double\">", "</d:Latitude>"));
+                item.setmLng(StringUtils.getStringBetween(str, "<d:Longitude m:type=\"Edm.Double\">", "</d:Longitude>"));
+                item.setmDistance(StringUtils.getStringBetween(str, "<d:Distance m:type=\"Edm.Double\">", "</d:Distance>"));
                 result.add(item);
             }
 

@@ -1,6 +1,8 @@
 package sg.srcode.xtremeapp.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
@@ -42,11 +44,15 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
     private LocationManager mLocationManager;
 
     private final String[] LIST_HEADERS = {"High", "Medium", "Low"};
-    private final String[] LIST_SCALE = {"> 250", "100 - 250","< 100"};
+    private final String[] LIST_SCALE = {"> 250", "100 - 250", "< 100"};
 
     private Location mCurrentLocation;
 
     private CarparkItem mCheckedItem;
+
+    private AlertDialog myAlertDialog;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,19 +117,23 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
     public void reloadData() {
         this.mItems = null;
         this.mItems = mServer.getNearbyCarparks(this.mCurrentLocation.getLatitude(), this.mCurrentLocation.getLongitude(), 50);
-        this.mSectionedAdapter.removeAllSections();
-        int i = 0;
-        for (String header : LIST_HEADERS) {
-            ArrayList<CarparkItem> temp = new ArrayList<CarparkItem>();
-            for (CarparkItem item : mItems) {
-                if (item.getmAvailability().equalsIgnoreCase(header)) {
-                    temp.add(item);
+        if (this.mItems != null) {
+            this.mSectionedAdapter.removeAllSections();
+            int i = 0;
+            for (String header : LIST_HEADERS) {
+                ArrayList<CarparkItem> temp = new ArrayList<CarparkItem>();
+                for (CarparkItem item : mItems) {
+                    if (item.getmAvailability().equalsIgnoreCase(header)) {
+                        temp.add(item);
+                    }
                 }
+                if (temp.size() > 0) {
+                    this.mSectionedAdapter.addSection("Availability : " + header + " (" + LIST_SCALE[i] + ")", new CarparkAdapter(getBaseContext(), temp));
+                }
+                i++;
             }
-            if(temp.size() > 0) {
-                this.mSectionedAdapter.addSection("Availability : " + header + " ("+LIST_SCALE[i]+")", new CarparkAdapter(getBaseContext(), temp));
-            }
-            i++;
+        } else {
+            showDialog(getApplicationContext(),"Error","Cannot connect to the server");
         }
     }
 
@@ -154,7 +164,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
         }
     }
 
-    public LocationUtils.LocationResult locationResult = new LocationUtils.LocationResult(){
+    public LocationUtils.LocationResult locationResult = new LocationUtils.LocationResult() {
         @Override
         public void gotLocation(final Location location) {
             // do something
@@ -170,8 +180,8 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
     private void prepareQuickActionBar() {
         mBar = new QuickActionBar(this);
-        mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_edit, R.string.carpark_calculate));
-        mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_eye, R.string.carpark_map));
+        mBar.addQuickAction(new MyQuickAction(this, R.drawable.calculator, R.string.carpark_calculate));
+        mBar.addQuickAction(new MyQuickAction(this, R.drawable.maps, R.string.carpark_map));
 
         mBar.setOnQuickActionClickListener(mActionListener);
     }
@@ -190,7 +200,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
                     break;
                 default:
-                   //Do nothing for now
+                    //Do nothing for now
             }
             startActivity(intent);
         }
@@ -198,15 +208,12 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
     private static class MyQuickAction extends QuickAction {
 
-        private static final ColorFilter BLACK_CF = new LightingColorFilter(Color.BLACK, Color.BLACK);
-
         public MyQuickAction(Context ctx, int drawableId, int titleId) {
             super(ctx, buildDrawable(ctx, drawableId), titleId);
         }
 
         private static Drawable buildDrawable(Context ctx, int drawableId) {
             Drawable d = ctx.getResources().getDrawable(drawableId);
-            d.setColorFilter(BLACK_CF);
             return d;
         }
 
@@ -218,7 +225,24 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
         intent.putExtra("development", item.getmDevelopment());
 
         return intent;
-
     }
+
+
+    public void showDialog(Context context, String title, String message) {
+        if( myAlertDialog == null || myAlertDialog.isShowing() ) return;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int arg1) {
+                    dialog.dismiss();
+                }});
+        builder.setCancelable(false);
+        myAlertDialog = builder.create();
+        myAlertDialog.show();
+    }
+
+
 
 }

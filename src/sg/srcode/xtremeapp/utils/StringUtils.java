@@ -65,4 +65,17 @@ public class StringUtils {
         String[] temp = str.split(" ");
         return temp[0];
     }
+
+    //This functions get the xml data between the xml elements
+    public static String getStringBetweenBrackets(String src, String start, String end) {
+        StringBuilder sb = new StringBuilder();
+        int startIdx = src.indexOf(start) + start.length();
+        int endIdx = src.indexOf(end);
+        while (startIdx < endIdx) {
+            sb.append(String.valueOf(src.charAt(startIdx)));
+            startIdx++;
+        }
+
+        return sb.toString();
+    }
 }

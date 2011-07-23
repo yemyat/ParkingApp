@@ -44,24 +44,16 @@ public class PlaceAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
            // viewHolder.avatar = (ImageView)view.findViewById(R.id.iv_place_avatar);
             viewHolder.name = (TextView)view.findViewById(R.id.tv_place_name);
-            viewHolder.operatingHours = (TextView)view.findViewById(R.id.tv_operating_hours);
-            viewHolder.distance = (TextView)view.findViewById(R.id.tv_distance);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder)view.getTag();
         }
-
         PlaceItem item = this.mItems.get(i);
         viewHolder.name.setText(item.getmName());
-        viewHolder.operatingHours.setText(item.getmOperatingHrs());
-        viewHolder.distance.setText(item.getmDistance());
         return view;
     }
-        static class ViewHolder {
+    static class ViewHolder {
         //ImageView avatar;
         TextView name;
-        TextView operatingHours;
-        TextView distance;
-
     }
 }

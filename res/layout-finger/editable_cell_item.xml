@@ -13,7 +13,7 @@
 
     <RelativeLayout android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:padding="5dp">
+            android:padding="3dp">
 
         <TextView android:id="@+id/tv_cell_title"
                   android:layout_width="fill_parent"
@@ -30,7 +30,7 @@
                   android:layout_below="@+id/seperator"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
-                  android:textColor="@color/gray"
+                  android:textColor="@color/dark_gray"
                 android:singleLine="true"></TextView> _
     </RelativeLayout>
 

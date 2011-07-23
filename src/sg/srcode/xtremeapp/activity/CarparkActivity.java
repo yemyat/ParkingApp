@@ -46,8 +46,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
     private Location mCurrentLocation;
 
-    private int mListItemPosition; //To track list item click location
-
+    private CarparkItem mCheckedItem;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +90,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
 
 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        this.mListItemPosition = i;
+        mCheckedItem = (CarparkItem) mSectionedAdapter.getItem(i);
         onShowBar(view);
     }
 
@@ -180,7 +179,7 @@ public class CarparkActivity extends GDActivity implements AdapterView.OnItemCli
     private QuickActionWidget.OnQuickActionClickListener mActionListener = new QuickActionWidget.OnQuickActionClickListener() {
         public void onQuickActionClicked(QuickActionWidget widget, int position) {
             Intent intent = new Intent();
-            intent = attachInfoForItem(mItems.get(mListItemPosition - 1), intent);
+            intent = attachInfoForItem(mCheckedItem, intent);
             switch (position) {
                 case 0:
                     //Calculator

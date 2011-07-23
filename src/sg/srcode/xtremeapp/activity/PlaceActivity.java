@@ -160,7 +160,6 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         this.mListItemPosition = i;
-        Toast t = Toast.makeText(getApplicationContext(), "" + i, )
     }
 
 }

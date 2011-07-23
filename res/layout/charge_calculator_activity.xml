@@ -14,7 +14,7 @@
               android:textStyle="bold"
              android:gravity="right"
              android:background="@color/gray"
-
+             android:maxLines="1"
              android:text="$0.00"/>
             <ImageView android:layout_width="fill_parent"
                    android:layout_height="1dp"

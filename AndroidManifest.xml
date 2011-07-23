@@ -36,11 +36,14 @@
                   android:label="@string/calculator"
                   android:screenOrientation="portrait">
         </activity>
-
-        <activity android:name=".activity.CategoryActivity"
-                  android:label="@string/category"
+        <activity android:name=".activity.CarparkMapActivity"
+                  android:label="@string/map"
+                  android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.DestinationAddActivity"
+                  android:label="@string/destAddress"
                   android:screenOrientation="portrait">
-        </activity>
+
+                  </activity>
 
     </application>
     <uses-sdk android:minSdkVersion="4" />

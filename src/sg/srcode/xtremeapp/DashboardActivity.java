@@ -29,16 +29,15 @@ public class DashboardActivity extends GDActivity
 
         setGDActionBarContentView(R.layout.dashboard_activity);
 
-        /* Hide the home button */
+        /* Hide the home button
         getGDActionBar().findViewById(R.id.gd_action_bar_home_item).setVisibility(View.GONE);
         ((ViewGroup) getGDActionBar().findViewById(R.id.gd_action_bar_home_item).getParent()).getChildAt(1).setVisibility(View.GONE);
-
+                                */
         /* Items for Dashboard */
         ArrayList<DashboardItem> dashboardItems = new ArrayList<DashboardItem>();
         dashboardItems.add(new DashboardItem("Directions", getResources().getDrawable(R.drawable.icon)));
-        dashboardItems.add(new DashboardItem("Car Parks", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Car Parks", getResources().getDrawable(R.drawable.parking)));
         dashboardItems.add(new DashboardItem("Cabs", getResources().getDrawable(R.drawable.icon)));
-        dashboardItems.add(new DashboardItem("Item #4", getResources().getDrawable(R.drawable.icon)));
         dashboardItems.add(new DashboardItem("Nearby", getResources().getDrawable(R.drawable.icon)));
 
 
@@ -65,14 +64,14 @@ public class DashboardActivity extends GDActivity
                     break;
                 case 2:
                     intent.setClass(adapterView.getContext(), CabActivity.class);
-                    break;                                                                        tu
+                    break;
                 case 4:
 //                    intent.setClass(adapterView.getContext(), PlaceActivity.class);
                     break;
                 default:
                     //Do nothing
                     break;
-            }                                                                             t
+            }
             if(intent.getComponent() != null) {
                 startActivity(intent);
             }

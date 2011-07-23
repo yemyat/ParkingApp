@@ -5,13 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="505700d2-e91a-4530-8823-b465ce6588f5" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\91292\Desktop\temp\CodeXtreme\src\sg\srcode\xtremeapp\activity\PlaceActivity.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/calculator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/calendar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/extra.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/interval.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/maps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/parking.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/receipt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/calculator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/calendar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/extra.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/interval.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/maps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/parking.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/receipt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/timer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/calculator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/calendar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/extra.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/interval.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/maps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/parking.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/receipt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/actionbar_title.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/eraser.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-finger/place_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/carpark_map_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/category_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/individual_place.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CarparkMapActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CategoryActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/adapter/PlaceAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/action_bar.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/action_bar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/action_bar_divider.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/action_bar_divider.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/list_header_bg.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/list_header_bg.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../GreenDroid/GreenDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../../GreenDroid/GreenDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../GreenDroid/GreenDroid/default.properties" afterPath="$PROJECT_DIR$/../../GreenDroid/GreenDroid/default.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/action_bar_background.xml" afterPath="$PROJECT_DIR$/res/drawable/action_bar_background.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-finger/editable_cell_item.xml" afterPath="$PROJECT_DIR$/res/layout-finger/editable_cell_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/charge_calculator_activity.xml" afterPath="$PROJECT_DIR$/res/layout/charge_calculator_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/direction_activity.xml" afterPath="$PROJECT_DIR$/res/layout/direction_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/themes.xml" afterPath="$PROJECT_DIR$/res/values/themes.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/XtremeApp.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/XtremeApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CarparkActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CarparkActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/ChargeCalculatorActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/ChargeCalculatorActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/PlaceActivity.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/PlaceActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/connection/NimbusServer.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/connection/NimbusServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/item/PlaceItem.java" afterPath="$PROJECT_DIR$/src/sg/srcode/xtremeapp/item/PlaceItem.java" />
     </list>
     <ignored path="CodeXtreme.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +122,7 @@
       <file leaf-file-name="DirectionActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="93" selection-start="1606" selection-end="1606" vertical-scroll-proportion="0.0">
+            <state line="43" column="74" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,10 +130,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DestinationAddActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DestinationAddActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="55" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+            <state line="40" column="97" selection-start="1538" selection-end="1538" vertical-scroll-proportion="0.4930362">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="52" selection-start="1953" selection-end="1964" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlaceActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/PlaceActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="84" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarparkMapActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CarparkMapActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="38" selection-start="0" selection-end="5707" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,7 +171,7 @@
       <file leaf-file-name="direction_activity.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/direction_activity.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="78" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+            <state line="9" column="65" selection-start="0" selection-end="1651" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,16 +180,16 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="40" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
+            <state line="20" column="50" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DashboardActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java">
+      <file leaf-file-name="destination_activity.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/destination_activity.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="100" selection-start="2871" selection-end="2871" vertical-scroll-proportion="0.48548812">
+            <state line="11" column="45" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,10 +209,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/layout/direction_activity.xml" />
-        <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java" />
+        <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/PlaceActivity.java" />
         <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/direction_activity.xml" />
+        <option value="$PROJECT_DIR$/res/layout/destination_activity.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java" />
+        <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/GetResultActivity.java" />
+        <option value="$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java" />
       </list>
     </option>
   </component>
@@ -204,6 +287,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xtremeapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeXtreme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeXtreme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xtremeapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,8 +583,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2495935" sideWeight="0.67038214" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -556,40 +661,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="93" selection-start="1606" selection-end="1606" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="55" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+        <state line="73" column="90" selection-start="2964" selection-end="2964" vertical-scroll-proportion="1.7437326">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/direction_activity.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/destination_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="78" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+        <state line="11" column="45" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="52" selection-start="1953" selection-end="1964" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="40" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
+        <state line="20" column="50" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/DashboardActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/direction_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="100" selection-start="2871" selection-end="2871" vertical-scroll-proportion="0.48548812">
+        <state line="9" column="65" selection-start="0" selection-end="1651" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DirectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="74" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/CarparkMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="38" selection-start="0" selection-end="5707" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/PlaceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="84" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sg/srcode/xtremeapp/activity/DestinationAddActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="97" selection-start="1538" selection-end="1538" vertical-scroll-proportion="0.4930362">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

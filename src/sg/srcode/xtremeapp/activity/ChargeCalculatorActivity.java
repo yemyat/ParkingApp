@@ -77,19 +77,19 @@ public class ChargeCalculatorActivity extends GDActivity implements AdapterView.
         this.mAdapter.removeAllSections();
 
         this.mItems = new ArrayList<EditableItem>();
-        this.mItems.add(new EditableItem("Start Date", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
-        this.mItems.add(new EditableItem("Start Time", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
+        this.mItems.add(new EditableItem("Start Date", "Click here to specify", getResources().getDrawable(R.drawable.calendar)));
+        this.mItems.add(new EditableItem("Start Time", "Click here to specify", getResources().getDrawable(R.drawable.clock)));
         this.mAdapter.addSection("Start date and time", new EditableCellAdapter(getBaseContext(), mItems));
 
         this.mItems = new ArrayList<EditableItem>();
-        this.mItems.add(new EditableItem("End Date", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
-        this.mItems.add(new EditableItem("End Time", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
+        this.mItems.add(new EditableItem("End Date", "Click here to specify", getResources().getDrawable(R.drawable.calendar)));
+        this.mItems.add(new EditableItem("End Time", "Click here to specify", getResources().getDrawable(R.drawable.clock)));
         this.mAdapter.addSection("End date and time", new EditableCellAdapter(getBaseContext(), mItems));
 
         this.mItems = new ArrayList<EditableItem>();
-        this.mItems.add(new EditableItem("Interval Duration", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
-        this.mItems.add(new EditableItem("Interval Charge", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
-        this.mItems.add(new EditableItem("Optional Charges", "Click here to specify", getResources().getDrawable(R.drawable.icon)));
+        this.mItems.add(new EditableItem("Interval Duration", "Click here to specify", getResources().getDrawable(R.drawable.interval)));
+        this.mItems.add(new EditableItem("Interval Charge", "Click here to specify", getResources().getDrawable(R.drawable.receipt)));
+        this.mItems.add(new EditableItem("Optional Charges", "Click here to specify", getResources().getDrawable(R.drawable.extra)));
         this.mAdapter.addSection("Extras", new EditableCellAdapter(getBaseContext(), mItems));
     }
 

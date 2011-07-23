@@ -9,45 +9,29 @@ package sg.srcode.xtremeapp.item;
  */
 public class PlaceItem {
     protected String mId;
-    protected String mCompanyName;
-    protected String mCompanyType;
-    protected String mCategory;
-    protected String mSubCategory;
-    protected String mDescription;
-    protected String mOperatingHrs;
-    protected String mBlockNo;
-    protected String mStreetName;
-    protected String mStreetName2;
-    protected String mUnit;
-    protected String mBuildingName;
+    protected String mName;
+    protected String mAddress;
     protected String mPostalCode;
+    protected String mTel;
+    protected String mURL;
+    protected String mOperatingHrs;
     protected String mLat;
     protected String mLng;
-    protected String mTel;
-    protected String mEmail;
-    protected String mWebSite;
+    protected String mDistance;
 
     public PlaceItem() {}
 
-    public PlaceItem(String mId, String mCompanyName, String mCompanyType, String mCategory, String mSubCategory, String mDescription, String mOperatingHrs, String mBlockNo, String mStreetName, String mStreetName2, String mUnit, String mBuildingName, String mPostalCode, String mLat, String mLng, String mTel, String mEmail, String mWebSite) {
+    public PlaceItem(String mId, String mName, String mAddress, String mPostalCode, String mTel, String mURL, String mOperatingHrs, String mLat, String mLng, String mDistance) {
         this.mId = mId;
-        this.mCompanyName = mCompanyName;
-        this.mCompanyType = mCompanyType;
-        this.mCategory = mCategory;
-        this.mSubCategory = mSubCategory;
-        this.mDescription = mDescription;
-        this.mOperatingHrs = mOperatingHrs;
-        this.mBlockNo = mBlockNo;
-        this.mStreetName = mStreetName;
-        this.mStreetName2 = mStreetName2;
-        this.mUnit = mUnit;
-        this.mBuildingName = mBuildingName;
+        this.mName = mName;
+        this.mAddress = mAddress;
         this.mPostalCode = mPostalCode;
+        this.mTel = mTel;
+        this.mURL = mURL;
+        this.mOperatingHrs = mOperatingHrs;
         this.mLat = mLat;
         this.mLng = mLng;
-        this.mTel = mTel;
-        this.mEmail = mEmail;
-        this.mWebSite = mWebSite;
+        this.mDistance = mDistance;
     }
 
     public String getmId() {
@@ -58,92 +42,20 @@ public class PlaceItem {
         this.mId = mId;
     }
 
-    public String getmCompanyName() {
-        return mCompanyName;
+    public String getmName() {
+        return mName;
     }
 
-    public void setmCompanyName(String mCompanyName) {
-        this.mCompanyName = mCompanyName;
+    public void setmName(String mName) {
+        this.mName = mName;
     }
 
-    public String getmCompanyType() {
-        return mCompanyType;
+    public String getmAddress() {
+        return mAddress;
     }
 
-    public void setmCompanyType(String mCompanyType) {
-        this.mCompanyType = mCompanyType;
-    }
-
-    public String getmCategory() {
-        return mCategory;
-    }
-
-    public void setmCategory(String mCategory) {
-        this.mCategory = mCategory;
-    }
-
-    public String getmSubCategory() {
-        return mSubCategory;
-    }
-
-    public void setmSubCategory(String mSubCategory) {
-        this.mSubCategory = mSubCategory;
-    }
-
-    public String getmDescription() {
-        return mDescription;
-    }
-
-    public void setmDescription(String mDescription) {
-        this.mDescription = mDescription;
-    }
-
-    public String getmOperatingHrs() {
-        return mOperatingHrs;
-    }
-
-    public void setmOperatingHrs(String mOperatingHrs) {
-        this.mOperatingHrs = mOperatingHrs;
-    }
-
-    public String getmBlockNo() {
-        return mBlockNo;
-    }
-
-    public void setmBlockNo(String mBlockNo) {
-        this.mBlockNo = mBlockNo;
-    }
-
-    public String getmStreetName() {
-        return mStreetName;
-    }
-
-    public void setmStreetName(String mStreetName) {
-        this.mStreetName = mStreetName;
-    }
-
-    public String getmStreetName2() {
-        return mStreetName2;
-    }
-
-    public void setmStreetName2(String mStreetName2) {
-        this.mStreetName2 = mStreetName2;
-    }
-
-    public String getmUnit() {
-        return mUnit;
-    }
-
-    public void setmUnit(String mUnit) {
-        this.mUnit = mUnit;
-    }
-
-    public String getmBuildingName() {
-        return mBuildingName;
-    }
-
-    public void setmBuildingName(String mBuildingName) {
-        this.mBuildingName = mBuildingName;
+    public void setmAddress(String mAddress) {
+        this.mAddress = mAddress;
     }
 
     public String getmPostalCode() {
@@ -152,6 +64,30 @@ public class PlaceItem {
 
     public void setmPostalCode(String mPostalCode) {
         this.mPostalCode = mPostalCode;
+    }
+
+    public String getmTel() {
+        return mTel;
+    }
+
+    public void setmTel(String mTel) {
+        this.mTel = mTel;
+    }
+
+    public String getmURL() {
+        return mURL;
+    }
+
+    public void setmURL(String mURL) {
+        this.mURL = mURL;
+    }
+
+    public String getmOperatingHrs() {
+        return mOperatingHrs;
+    }
+
+    public void setmOperatingHrs(String mOperatingHrs) {
+        this.mOperatingHrs = mOperatingHrs;
     }
 
     public String getmLat() {
@@ -170,29 +106,15 @@ public class PlaceItem {
         this.mLng = mLng;
     }
 
-    public String getmTel() {
-        return mTel;
+    public String getmDistance() {
+        return mDistance;
     }
 
-    public void setmTel(String mTel) {
-        this.mTel = mTel;
+    public void setmDistance(String mDistance) {
+        this.mDistance = mDistance;
     }
 
-    public String getmEmail() {
-        return mEmail;
+    public String toString() {
+        return this.mName + "\n" + this.mOperatingHrs + "\n" +this.mDistance;
     }
-
-    public void setmEmail(String mEmail) {
-        this.mEmail = mEmail;
-    }
-
-    public String getmWebSite() {
-        return mWebSite;
-    }
-
-    public void setmWebSite(String mWebSite) {
-        this.mWebSite = mWebSite;
-    }
-
-
 }

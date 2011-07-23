@@ -36,10 +36,9 @@ public class DashboardActivity extends GDActivity
                                 */
         /* Items for Dashboard */
         ArrayList<DashboardItem> dashboardItems = new ArrayList<DashboardItem>();
-        dashboardItems.add(new DashboardItem("Directions", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Directions", getResources().getDrawable(R.drawable.directions)));
         dashboardItems.add(new DashboardItem("Car Parks", getResources().getDrawable(R.drawable.parking)));
-        dashboardItems.add(new DashboardItem("Cabs", getResources().getDrawable(R.drawable.icon)));
-        dashboardItems.add(new DashboardItem("Nearby", getResources().getDrawable(R.drawable.icon)));
+        dashboardItems.add(new DashboardItem("Nearby", getResources().getDrawable(R.drawable.nearby)));
 
 
         this.mGridView = (GridView) findViewById(R.id.gv_dashboard);
@@ -64,9 +63,6 @@ public class DashboardActivity extends GDActivity
                     intent.setClass(adapterView.getContext(), CarparkActivity.class);
                     break;
                 case 2:
-                    intent.setClass(adapterView.getContext(), CabActivity.class);
-                    break;
-                case 4:
                     intent.setClass(adapterView.getContext(), PlaceActivity.class);
                     break;
                 default:

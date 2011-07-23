@@ -144,7 +144,7 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
                     break;
                 case 2:
-                    Intent intent = new Intent(Intent.AsCTION_DIAL);
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
                     String stringURL = mCheckedItem.getmTel();
                     intent.setData(Uri.parse(stringURL));
                     startActivity(intent);

@@ -1,6 +1,7 @@
 package sg.srcode.xtremeapp.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -22,7 +23,7 @@ import sg.srcode.xtremeapp.utils.LocationUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class PlaceActivity extends GDActivity implements AdapterView.OnItemClickListener{
+public class PlaceActivity extends GDActivity implements AdapterView.OnItemClickListener {
     private NimbusServer mServer;
     private LoaderActionBarItem loaderItem;
 
@@ -55,9 +56,9 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
         mSectionedAdapter = new SectionedAdapter() {
             @Override
             protected View getHeaderView(String caption, int index, int count, View convertView, ViewGroup parent) {
-                TextView  result = (TextView) convertView;
+                TextView result = (TextView) convertView;
 
-                if(convertView == null) {
+                if (convertView == null) {
                     result = (TextView) getLayoutInflater().inflate(R.layout.list_section_header, null);
                 }
                 result.setText(caption);
@@ -65,7 +66,7 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
             }
         };
 
-        mLocationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         mCurrentLocation = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
 
@@ -97,19 +98,19 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
     }
 
     public void reloadData() {
-       this.mItems = mServer.getNearbyPlaces(1.3, 103.85, 2000);
-       this.mSectionedAdapter.removeAllSections();
+        this.mItems = null;
+        this.mItems = mServer.getNearbyPlaces(this.mCurrentLocation.getLatitude(), this.mCurrentLocation.getLongitude(), 50);
+        this.mSectionedAdapter.removeAllSections();
 
 
-
-       for(PlaceItem item : mItems) {
-           if(!item.getmCategory().equals(""))
-             mCategories.add(item.getmCategory());
-       }
+        for (PlaceItem item : mItems) {
+            if (!item.getmCategory().equals(""))
+                mCategories.add(item.getmCategory().replaceFirst("&amp;", "&"));
+        }
         removeCategoryDuplicates();
 
-      this.mSectionedAdapter.addSection("Categories", new ArrayAdapter<String>
-        (this,android.R.layout.simple_list_item_1,mCategories));
+        this.mSectionedAdapter.addSection("Categories", new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, mCategories));
 
     }
 
@@ -146,7 +147,7 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
         }
     }
 
-     public LocationUtils.LocationResult locationResult = new LocationUtils.LocationResult(){
+    public LocationUtils.LocationResult locationResult = new LocationUtils.LocationResult() {
         @Override
         public void gotLocation(final Location location) {
             // do something
@@ -157,9 +158,15 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
     };
 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        this.mListItemPosition = i;
-        Toast t = Toast.makeText(getApplicationContext(), "" + i, Toast.LENGTH_SHORT);
-        t.show();
+        mListItemPosition = i;
+        Intent intent = new Intent(getBaseContext(), CategoryActivity.class);
+        intent.putExtra("category_name", mCategories.get(mListItemPosition - 1));
+        intent.putExtra("categories", mCategories);
+        intent.putExtra("latitude", this.mCurrentLocation.getLatitude());
+        intent.putExtra("longitude", this.mCurrentLocation.getLongitude());
+        intent.putExtra("distance", 2000.0);
+        Toast.makeText(getApplicationContext(), "" + mCategories.get(mListItemPosition - 1), Toast.LENGTH_SHORT).show();
+        startActivity(intent);
 
     }
 

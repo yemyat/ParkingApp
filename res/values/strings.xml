@@ -9,4 +9,5 @@
     <string name="carpark_calculate">Calculate Charges</string>
     <string name="carpark_map">View on Map</string>
     <string name="calculator">Calculator</string>
+    <string name="category">Category</string>
 </resources>

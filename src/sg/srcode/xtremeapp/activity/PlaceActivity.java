@@ -24,6 +24,7 @@ import sg.srcode.xtremeapp.R;
 import sg.srcode.xtremeapp.adapter.PlaceAdapter;
 import sg.srcode.xtremeapp.adapter.SectionedAdapter;
 import sg.srcode.xtremeapp.connection.NimbusServer;
+import sg.srcode.xtremeapp.item.CarparkItem;
 import sg.srcode.xtremeapp.item.PlaceItem;
 import sg.srcode.xtremeapp.utils.LocationUtils;
 
@@ -38,7 +39,7 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
     private QuickActionWidget mBar;
     private SectionedAdapter mSectionedAdapter;
 
-    private String[] LIST_HEADERS = {"Point of Interests"};
+    private String[] LIST_HEADERS = {"Amenities"};
 
 
     private LocationManager mLocationManager;
@@ -107,7 +108,6 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
      private void prepareQuickActionBar() {
         mBar = new QuickActionBar(this);
-        mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_edit, R.string.place_info));
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_compass, R.string.place_map));
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_talk, R.string.place_call));
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_share, R.string.place_url));
@@ -133,28 +133,28 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
 
     private QuickActionWidget.OnQuickActionClickListener mActionListener = new QuickActionWidget.OnQuickActionClickListener() {
         public void onQuickActionClicked(QuickActionWidget widget, int position) {
-
+            Intent intent = new Intent();
+            intent = attachInfoForItem(mCheckedItem, intent);
             switch (position) {
                 case 0:
-                    //Info
-                    //intent.setClass(getBaseContext(), ChargeCalculatorActivity.class);
+                    intent.setClass(getBaseContext(), CarparkMapActivity.class);
                     break;
                 case 1:
-                    //Map
-
+                    Intent i = new Intent(Intent.ACTION_DIAL);
+                    String stringURL = mCheckedItem.getmTel();
+                    i.setData(Uri.parse(stringURL));
+                    startActivity(i);
                     break;
                 case 2:
-                    Intent intent = new Intent(Intent.ACTION_DIAL);
-                    String stringURL = mCheckedItem.getmTel();
-                    intent.setData(Uri.parse(stringURL));
-                    startActivity(intent);
-                    break;
-                case 3:
+                    Intent j = new Intent(Intent.ACTION_VIEW);
+                    String url = mCheckedItem.getmURL();
+                    j.setData(Uri.parse(url));
+                    startActivity(j);
                     break;
                 default:
                    //Do nothing for now
             }
-           // startActivity(intent);
+           startActivity(intent);
         }
     };
 
@@ -212,6 +212,15 @@ public class PlaceActivity extends GDActivity implements AdapterView.OnItemClick
             }
         }
 
+    }
+
+    private Intent attachInfoForItem(PlaceItem item, Intent intent) {
+
+        intent.putExtra("development", item.getmName());
+        intent.putExtra("latitude", item.getmLat());
+        intent.putExtra("longitude", item.getmLng());
+
+        return intent;
     }
 
 }

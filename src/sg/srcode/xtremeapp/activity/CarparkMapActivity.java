@@ -146,16 +146,17 @@ public class CarparkMapActivity extends GDActivity implements LocationListener {
         mCurrentLocation = locationManager.getLastKnownLocation(provider);
     }
 
-        public void showDialog(Context context, String title, String message) {
-        if( myAlertDialog == null || myAlertDialog.isShowing() ) return;
+    public void showDialog(Context context, String title, String message) {
+        if (myAlertDialog == null || myAlertDialog.isShowing()) return;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int arg1) {
-                    dialog.dismiss();
-                }});
+            public void onClick(DialogInterface dialog, int arg1) {
+                dialog.dismiss();
+            }
+        });
         builder.setCancelable(false);
         myAlertDialog = builder.create();
         myAlertDialog.show();

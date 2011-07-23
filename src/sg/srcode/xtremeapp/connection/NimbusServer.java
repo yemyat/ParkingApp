@@ -30,7 +30,9 @@ public class NimbusServer {
         CARPARK,
         CAB,
         PLACE
-    };
+    }
+
+    ;
 
     public interface Delegate {
         // Called if connection error occurred
@@ -48,7 +50,7 @@ public class NimbusServer {
     public String makeUrl(Mode mode) {
         switch (mode) {
             case CARPARK:
-                return SERVER_BASE_URL+CAR_PARK_URL;
+                return SERVER_BASE_URL + CAR_PARK_URL;
             case CAB:
                 return CAB_URL;
             case PLACE:
@@ -81,21 +83,21 @@ public class NimbusServer {
         ArrayList<CarparkItem> result = new ArrayList<CarparkItem>();
 
         try {
-            String baseUrl = makeUrl(Mode.CARPARK) + "?Latitude="+latitude+"&"+"Longtitude="+longtitude+"&"+"Distance="+distance;
+            String baseUrl = makeUrl(Mode.CARPARK) + "?Latitude=" + latitude + "&" + "Longtitude=" + longtitude + "&" + "Distance=" + distance;
             Log.d(TAG, baseUrl);
             URLConnection conn = makeConnection(baseUrl);
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()),8000);
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8000);
             String line = null;
             StringBuilder sb = new StringBuilder();
 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
 
             String[] properties = sb.toString().split("<m:properties>");
 
-            for(String str : properties) {
-                if(!StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>").equals("")) {
+            for (String str : properties) {
+                if (!StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>").equals("")) {
                     CarparkItem item = new CarparkItem();
                     item.setmId(StringUtils.getStringBetween(str, "<d:CarParkID m:type=\"Edm.Int32\">", "</d:CarParkID>"));
                     item.setmArea(StringUtils.getStringBetween(str, "<d:Area>", "</d:Area>"));
@@ -122,13 +124,13 @@ public class NimbusServer {
             String baseUrl = makeUrl(Mode.CAB);/* + "?Latitude="+latitude+"&"+"Longtitude="+longtitude+"&"+"Distance="+distance;   */
             Log.d(TAG, baseUrl.toString());
             URLConnection conn = makeConnection(baseUrl);
-            HttpURLConnection httpURLConnection = (HttpURLConnection)conn;
+            HttpURLConnection httpURLConnection = (HttpURLConnection) conn;
             Log.e(TAG, String.valueOf(httpURLConnection.getResponseCode()));
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()),8000);
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8000);
             String line = null;
             StringBuilder sb = new StringBuilder();
 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
 
@@ -139,7 +141,7 @@ public class NimbusServer {
 
 
             }*/
-        } catch(IOException e) {
+        } catch (IOException e) {
             Log.e(TAG, "Error retrieving cab data");
         }
         return result;
@@ -148,41 +150,41 @@ public class NimbusServer {
     public ArrayList<PlaceItem> getNearbyPlaces(double latitude, double longitude, double distance) {
         ArrayList<PlaceItem> result = new ArrayList<PlaceItem>();
         try {
-           String baseUrl = makeUrl(Mode.PLACE) + "?Latitude=" + latitude + "&" + "Longitude=" + longitude + "&" + "Distance=" + distance;
+            String baseUrl = makeUrl(Mode.PLACE) + "?Latitude=" + latitude + "&" + "Longitude=" + longitude + "&" + "Distance=" + distance;
 
-           URLConnection conn = makeConnection(baseUrl);
-           BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8000);
+            URLConnection conn = makeConnection(baseUrl);
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8000);
             String line = null;
             StringBuilder sb = new StringBuilder();
 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
 
             String[] properties = sb.toString().split("<m:properties>");
-            for(String str : properties) {
+            for (String str : properties) {
                 PlaceItem item = new PlaceItem();
-                item.setmId(StringUtils.getStringBetween(str, "<d:PlaceID m:type=\"Edm.Int32\">", "</d:PlaceID>"));
-                item.setmName(StringUtils.getStringBetween(str, "<d:Name>", "</d:Name>"));
-                item.setmAddress(StringUtils.getStringBetween(str, "<d:Address1>", "</d:Address1>"));
-                item.setmPostalCode(StringUtils.getStringBetween(str, "<d:PostalCode>", "</d:PostalCode>"));
-                item.setmTel(StringUtils.getStringBetween(str, "<d:Tel>", "</d:Tel>"));
-                item.setmURL(StringUtils.getStringBetween(str, "<d:URL>", "</d:URL"));
-                item.setmOperatingHrs(StringUtils.getStringBetween(str, "<d:OperatingHours>", "</d:OperatingHours>"));
-                item.setmLat(StringUtils.getStringBetween(str, "<d:Latitude m:type=\"Edm.Double\">", "</d:Latitude>"));
-                item.setmLng(StringUtils.getStringBetween(str, "<d:Longitude m:type=\"Edm.Double\">", "</d:Longitude>"));
-                item.setmDistance(StringUtils.getStringBetween(str, "<d:Distance m:type=\"Edm.Double\">", "</d:Distance>"));
-                result.add(item);
+                if (!((StringUtils.getStringBetween(str, "<d:Name>", "</d:Name>")).equalsIgnoreCase(""))) {
+                    item.setmId(StringUtils.getStringBetween(str, "<d:PlaceID m:type=\"Edm.Int32\">", "</d:PlaceID>"));
+                    item.setmName(StringUtils.getStringBetween(str, "<d:Name>", "</d:Name>"));
+                    item.setmAddress(StringUtils.getStringBetween(str, "<d:Address1>", "</d:Address1>"));
+                    item.setmPostalCode(StringUtils.getStringBetween(str, "<d:PostalCode>", "</d:PostalCode>"));
+                    item.setmTel(StringUtils.getStringBetween(str, "<d:Tel>", "</d:Tel>"));
+                    item.setmURL(StringUtils.getStringBetween(str, "<d:URL>", "</d:URL"));
+                    item.setmOperatingHrs(StringUtils.getStringBetweenBrackets(str, "OperatingHours", "OperatingHours"));
+                    item.setmLat(StringUtils.getStringBetween(str, "<d:Latitude m:type=\"Edm.Double\">", "</d:Latitude>"));
+                    item.setmLng(StringUtils.getStringBetween(str, "<d:Longitude m:type=\"Edm.Double\">", "</d:Longitude>"));
+                    item.setmDistance(StringUtils.getStringBetween(str, "<d:Distance m:type=\"Edm.Double\">", "</d:Distance>"));
+                    result.add(item);
+                }
             }
 
 
-        }  catch(IOException e) {
+        } catch (IOException e) {
             Log.e(TAG, "Error retrieving place data");
         }
         return result;
     }
-
-
 
 
 }

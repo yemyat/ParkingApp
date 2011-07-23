@@ -13,7 +13,8 @@
 
     <RelativeLayout android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:padding="3dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
         <TextView android:id="@+id/tv_cell_title"
                   android:layout_width="fill_parent"

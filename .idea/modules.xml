@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CodeXtreme.iml" filepath="$PROJECT_DIR$/CodeXtreme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../GreenDroid/GreenDroid/GreenDroid.iml" filepath="$PROJECT_DIR$/../../GreenDroid/GreenDroid/GreenDroid.iml" />
+    </modules>
+  </component>
+</project>
+

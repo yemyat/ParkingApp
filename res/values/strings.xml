@@ -10,4 +10,7 @@
     <string name="carpark_map">View on Map</string>
     <string name="calculator">Calculator</string>
     <string name="category">Category</string>
+    <string name="sourceLabel">Source Address</string>
+    <string name="confirmBtn">Confirm</string>
+    <string name="getCurrLocationBtn">Current Location</string>
 </resources>

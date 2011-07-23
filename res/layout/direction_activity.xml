@@ -4,10 +4,38 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="Hello World, DirectionsActivity"
-    />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+                  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@string/sourceLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent">
+                  </TextView>
+                  <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/sourceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent">
+                  </EditText>
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+                  <Button
+                        android:text="@string/confirmBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onConfirmSelection">
+                  </Button>
+                  <Button
+                        android:text="@string/getCurrLocationBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onGetCurrLocation">
+                  </Button>
+    </LinearLayout>
+
 </LinearLayout>
 
